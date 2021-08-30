@@ -9,7 +9,7 @@ import 'package:weatherapp/pages/location.dart';
 void main() {
   runApp(MaterialApp(
 
-    initialRoute: '/home',
+    initialRoute: '/',
 
     routes: {
       '/': (context)=> Loading(),
