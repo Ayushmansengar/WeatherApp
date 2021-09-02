@@ -16,17 +16,11 @@ class Loading extends StatefulWidget {
 
 class _LoadingState extends State<Loading> {
 
-  // void getData() async{
-  //   Response response = await get(Uri.parse('https://api.openweathermap.org/data/2.5/weather?q=london&appid=9dbecf09093d40c7d8a6c21b6a1a4524'));
-  //   Map  Data = jsonDecode(response.body);
-  //   Map weather = Data['wind'];
-  //   //Map w = weather[0];
-  //   print(weather['speed']);
-  // }
 
   void setupWeather() async
   {
-    Weather instance = Weather('Haridwar');
+
+    Weather instance = Weather('Dehradun');
     await instance.getWeather();
 
     Navigator.pushReplacementNamed(context, '/home',arguments: {
@@ -46,8 +40,6 @@ class _LoadingState extends State<Loading> {
   void initState() {
     super.initState();
     setupWeather();
-    //getData();
-
   }
 
   @override

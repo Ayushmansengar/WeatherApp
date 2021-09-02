@@ -15,6 +15,7 @@ void main() {
       '/': (context)=> Loading(),
       '/home': (context)=> Home(),
       '/location': (context)=>Location(),
+
     },
   ));
 }

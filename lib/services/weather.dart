@@ -21,10 +21,10 @@ class Weather{
     try{
       Response response = await get(Uri.parse('https://api.openweathermap.org/data/2.5/weather?q=$city&appid=$apiKey'));
       Map Data = jsonDecode(response.body);
-      List w = Data['weather'] ;
-      Map weather = w[0] ;
-      Map temp = Data['main'] ;
-      Map wind = Data['wind'] ;
+      List w = Data['weather'];
+      Map weather = w[0];
+      Map temp = Data['main'];
+      Map wind = Data['wind'];
 
       weather_Con = weather['main'];
 

@@ -12,13 +12,10 @@ class _HomeState extends State<Home> {
 
   Map data = {};
 
-
   @override
   Widget build(BuildContext context) {
 
-
-    data = ModalRoute.of(context)!.settings.arguments as Map;
-
+    data = data.isNotEmpty ? data : ModalRoute.of(context)!.settings.arguments as Map;
 
     return Scaffold(
       backgroundColor: Colors.blue[200],
@@ -40,7 +37,25 @@ class _HomeState extends State<Home> {
                   Expanded(
                     flex: 1,
                     child: IconButton(
-                      onPressed: (){},
+                      onPressed: () async{
+
+                        dynamic result = await Navigator.pushNamed(context,'/location');
+                        setState(() {
+                          data = {
+                            'temperature': result['temperature'],
+                            'min_temp': result['min_temp'],
+                            'max_temp': result['max_temp'],
+                            'pressure': result['pressure'],
+                            'humidity': result['humidity'],
+                            'wind_speed': result['wind_speed'],
+                            'weather_Con': result['weather_Con'],
+                            'city': result['city'],
+                          };
+
+
+                        });
+
+                      },
                         icon: Icon(
                           Icons.edit_location,
                         ),
